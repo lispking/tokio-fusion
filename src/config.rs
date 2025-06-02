@@ -1,10 +1,3 @@
-/// Returns the number of CPUs available to the current process
-fn num_cpus() -> usize {
-    std::thread::available_parallelism()
-        .map(|p| p.get())
-        .unwrap_or(1)
-}
-
 /// Configuration for the thread pool
 #[derive(Debug, Clone)]
 pub struct ThreadPoolConfig {
@@ -17,7 +10,7 @@ pub struct ThreadPoolConfig {
 impl Default for ThreadPoolConfig {
     fn default() -> Self {
         Self {
-            worker_threads: num_cpus(),
+            worker_threads: num_cpus::get(),
             queue_capacity: 1000,
         }
     }

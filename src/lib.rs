@@ -123,4 +123,3 @@ pub use config::ThreadPoolConfig;
 pub use error::{ThreadPoolError, ThreadPoolResult};
 pub use pool::{ThreadPool, ThreadPoolBuilder};
 pub use task::{Task, TaskHandle};
-

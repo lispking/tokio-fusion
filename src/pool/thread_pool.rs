@@ -35,11 +35,6 @@ impl ThreadPool {
         }
     }
 
-    /// Create a new thread pool with default configuration
-    pub fn default() -> Self {
-        Self::new(ThreadPoolConfig::default())
-    }
-
     /// Submit a task to the thread pool
     pub async fn submit<T>(&self, task: Task<T>) -> ThreadPoolResult<TaskHandle<T>>
     where
@@ -134,5 +129,11 @@ impl ThreadPool {
                 }
             }
         });
+    }
+}
+
+impl Default for ThreadPool {
+    fn default() -> Self {
+        Self::new(ThreadPoolConfig::default())
     }
 }

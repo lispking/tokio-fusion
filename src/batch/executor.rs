@@ -65,7 +65,7 @@ impl<T: Send + 'static> BatchExecutor<T> {
             handles.push(tokio::spawn(async move {
                 match thread_pool.submit(task).await {
                     Ok(handle) => handle.await_result().await,
-                    Err(e) => Err(e.into()),
+                    Err(e) => Err(e),
                 }
             }));
         }
