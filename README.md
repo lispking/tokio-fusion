@@ -1,5 +1,11 @@
 # Tokio Fusion
 
+[![Crates.io](https://img.shields.io/crates/v/tokio-fusion.svg)](https://crates.io/crates/tokio-fusion)
+[![Documentation](https://docs.rs/tokio-fusion/badge.svg)](https://docs.rs/tokio-fusion)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache2.0-yellow.svg)](https://opensource.org/license/apache-2-0)
+[<img alt="build status" src="https://img.shields.io/github/actions/workflow/status/lispking/tokio-fusion/ci.yml?branch=main&style=for-the-badge" height="20">](https://github.com/lispking/tokio-fusion/actions?query=branch%3Amain)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/lispking/tokio-fusion)
+
 A high-performance thread pool service built on top of Tokio, providing an easy-to-use API for asynchronous task execution.
 
 ## Features
