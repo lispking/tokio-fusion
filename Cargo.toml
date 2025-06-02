@@ -1,0 +1,27 @@
+[package]
+name = "tokio-fusion"
+version = "0.1.0"
+edition = "2024"
+authors = ["lispking"]
+description = "A high-performance thread pool service based on Tokio"
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+futures = "0.3"
+thiserror = "2"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+rand = { version = "0.9", features = ["std"] }  # For random number generation in work stealing
+
+serde = { version = "1.0", features = ["derive"] }  # For serialization/deserialization
+serde_json = "1.0"  # For JSON serialization
+chrono = "0.4"  # For timestamps
+tokio-util = { version = "0.7", features = ["time"] }  # For timeout utilities
+
+[dev-dependencies]
+criterion = { version = "0.6", features = ["html_reports"] }
+num_cpus = "1"
+
+[[bench]]
+name = "benchmark"
+harness = false
