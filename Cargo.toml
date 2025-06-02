@@ -1,9 +1,13 @@
 [package]
 name = "tokio-fusion"
+description = "A high-performance thread pool service based on Tokio"
 version = "0.1.0"
 edition = "2024"
 authors = ["lispking"]
-description = "A high-performance thread pool service based on Tokio"
+repository = "https://github.com/lispking/tokio-fusion"
+license = "Apache-2.0"
+keywords = ["tokio", "thread-pool", "task-scheduling"]
+categories = ["asynchronous", "thread-pool", "task-scheduling"]
 
 [dependencies]
 tokio = { version = "1", features = ["full"] }
