@@ -17,6 +17,43 @@ A high-performance thread pool service built on top of Tokio, providing an easy-
 - **Configurable**: Customize worker threads and queue capacity
 - **Error Handling**: Comprehensive error types and handling
 
+## Architecture
+
+```mermaid
+graph TD
+    subgraph User Application
+        A[Submit Task] -->|Task + Priority| B[ThreadPool]
+        A2[Batch Submit] -->|Multiple Tasks| B
+    end
+
+    subgraph ThreadPool
+        B --> C[Task Queue]
+        C --> D[Worker Thread 1]
+        C --> E[Worker Thread 2]
+        C --> F[Worker Thread N]
+        
+        D --> G[Task Execution]
+        E --> G
+        F --> G
+        
+        G --> H[Result Channel]
+    end
+    
+    H --> I[Get Result]
+    H --> J[Stream Results]
+    
+    style User Application fill:#f9f,stroke:#333,stroke-width:2px
+    style ThreadPool fill:#bbf,stroke:#333,stroke-width:2px
+```
+
+The architecture consists of:
+1. **ThreadPool**: Manages worker threads and task distribution
+2. **Task Queue**: Holds pending tasks with their priorities
+3. **Worker Threads**: Execute tasks in parallel
+4. **Result Channel**: Delivers execution results back to the caller
+5. **Batch Processing**: Allows submitting multiple tasks at once
+6. **Streaming Interface**: Provides real-time results as they complete
+
 ## Usage
 
 ### Basic Example
